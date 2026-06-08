@@ -10,57 +10,114 @@ Yêu cầu:
 """
 
 
+import json
+import os
+from pathlib import Path
+
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
+
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+VECTOR_STORE_DIR = Path(__file__).parent.parent / "data" / "vector_store"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+_CHROMA_COLLECTION_NAME = "drug_article_chunks"
+
+_local_store_cache = None
+_embedding_model = None
+
+
+def _load_embedding_model():
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = SentenceTransformer(
+            EMBEDDING_MODEL,
+            device="cpu",
+        )
+    return _embedding_model
+
+
+def _load_local_store() -> dict:
+    global _local_store_cache
+    if _local_store_cache is not None:
+        return _local_store_cache
+
+    store_path = VECTOR_STORE_DIR / "store.json"
+    embeddings_path = VECTOR_STORE_DIR / "embeddings.npy"
+    if not store_path.exists() or not embeddings_path.exists():
+        raise FileNotFoundError(
+            "Local vector store chưa được build. Hãy chạy task4_chunking_indexing.py trước."
+        )
+
+    with store_path.open("r", encoding="utf-8") as f:
+        store = json.load(f)
+
+    store["embeddings"] = np.load(embeddings_path)
+    _local_store_cache = store
+    return store
+
+
 def semantic_search(query: str, top_k: int = 10) -> list[dict]:
     """
-    Tìm kiếm ngữ nghĩa sử dụng vector similarity.
-
-    Args:
-        query: Câu truy vấn
-        top_k: Số lượng kết quả tối đa
-
     Returns:
-        List of {
-            'content': str,      # Nội dung chunk
-            'score': float,      # Cosine similarity score
-            'metadata': dict     # source, doc_type, chunk_index
-        }
-        Sorted by score descending.
+        List of {'content': str, 'score': float, 'metadata': dict}
     """
-    # TODO: Implement semantic search
-    #
-    # Bước 1: Embed query bằng cùng model ở Task 4
-    # Bước 2: Query vector store (cosine similarity)
-    # Bước 3: Return top_k results
-    #
-    # Ví dụ với Weaviate:
-    # import weaviate
-    # from sentence_transformers import SentenceTransformer
-    #
-    # model = SentenceTransformer("BAAI/bge-m3")
-    # query_embedding = model.encode(query).tolist()
-    #
-    # client = weaviate.connect_to_local()
-    # collection = client.collections.get("DrugLawDocs")
-    #
-    # results = collection.query.near_vector(
-    #     near_vector=query_embedding,
-    #     limit=top_k,
-    #     return_metadata=MetadataQuery(distance=True)
-    # )
-    #
-    # return [
-    #     {
-    #         "content": obj.properties["content"],
-    #         "score": 1 - obj.metadata.distance,  # distance → similarity
-    #         "metadata": {"source": obj.properties["source"], ...}
-    #     }
-    #     for obj in results.objects
-    # ]
-    raise NotImplementedError("Implement semantic_search")
+    model = _load_embedding_model()
+    query_embedding = model.encode(query, convert_to_numpy=True)
+
+    try:
+        import chromadb
+        from chromadb.config import Settings
+
+        client = chromadb.Client(Settings(chroma_db_impl="duckdb+parquet", persist_directory=str(VECTOR_STORE_DIR)))
+        collection = client.get_collection(name=_CHROMA_COLLECTION_NAME)
+
+        results = collection.query(
+            query_embeddings=[query_embedding.tolist()],
+            n_results=top_k,
+            include=["documents", "metadatas", "distances"],
+        )
+
+        hits = []
+        documents = results["documents"][0]
+        metadatas = results["metadatas"][0]
+        distances = results["distances"][0]
+        for doc, metadata, distance in zip(documents, metadatas, distances):
+            score = 1.0 - distance
+            hits.append({"content": doc, "score": score, "metadata": metadata})
+        return hits
+    except Exception:
+        store = _load_local_store()
+        embeddings = store["embeddings"]
+        if embeddings.ndim == 1:
+            embeddings = embeddings.reshape(1, -1)
+
+        query_norm = np.linalg.norm(query_embedding)
+        docs_norm = np.linalg.norm(embeddings, axis=1)
+        denom = docs_norm * query_norm
+        similarity = np.zeros(len(embeddings), dtype=float)
+        mask = denom > 0
+        similarity[mask] = np.dot(embeddings[mask], query_embedding) / denom[mask]
+
+        best_idx = np.argsort(similarity)[::-1][:top_k]
+        results = []
+        for idx in best_idx:
+            results.append(
+                {
+                    "content": store["documents"][idx],
+                    "score": float(similarity[idx]),
+                    "metadata": store["metadatas"][idx],
+                }
+            )
+        return results
 
 
 if __name__ == "__main__":
-    # Test
-    results = semantic_search("hình phạt cho tội tàng trữ ma tuý", top_k=5)
+    results = semantic_search("hình phạt cho tội tàng trữ ma túy", top_k=5)
     for r in results:
-        print(f"[{r['score']:.3f}] {r['content'][:100]}...")
+        snippet = r["content"][:200].replace("\n", " ")
+        print(f"[{r['score']:.3f}] {snippet}\n")

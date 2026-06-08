@@ -1,0 +1,57 @@
+# Cuộc sống Chi Dân trước khi bị điều tra vì liên quan ma túy - Ngôi sao
+
+**Source:** https://ngoisao.vnexpress.net/cuoc-song-chi-dan-truoc-khi-bi-dieu-tra-vi-lien-quan-ma-tuy-4814636.html
+
+**Crawled:** 2026-06-08T15:55:36.959753
+
+---
+
+Nguồn tin cho biết Chi Dân tức Nguyễn Trung Hiếu, 35 tuổi, vừa bị Công an quận Tân Bình, TP HCM tạm giữ để điều tra dấu hiệu liên quan đến việc tổ chức sử dụng ma túy. Anh có kết quả xét nghiệm dương tính với chất ma túy. Vụ việc đang được cơ quan chức năng mở rộng điều tra, chưa cung cấp thông tin, kết quả xử lý.
+
+Chi Dân trở thành từ khóa được tìm kiếm nổi bật trên Google Trend cùng ngày. Hình ảnh ca sĩ được chia sẻ trên khắp các nền tảng mạng xã hội như Facebook, TikTok. Hiện trang cá nhân Facebook của Chi Dân bị khóa, trong khi fanpage với hơn 2,5 triệu người theo dõi vẫn hoạt động bình thường. Bài gần nhất trên fanpage vào ngày 3/11 đăng ảnh cũ của ca sĩ.
+
+Nguồn tin cho biết Chi Dân tức Nguyễn Trung Hiếu, 35 tuổi, vừa bị Công an quận Tân Bình, TP HCM tạm giữ để điều tra dấu hiệu liên quan đến việc tổ chức sử dụng ma túy. Anh có kết quả xét nghiệm dương tính với chất ma túy. Vụ việc đang được cơ quan chức năng mở rộng điều tra, chưa cung cấp thông tin, kết quả xử lý.
+
+Chi Dân trở thành từ khóa được tìm kiếm nổi bật trên Google Trend cùng ngày. Hình ảnh ca sĩ được chia sẻ trên khắp các nền tảng mạng xã hội như Facebook, TikTok. Hiện trang cá nhân Facebook của Chi Dân bị khóa, trong khi fanpage với hơn 2,5 triệu người theo dõi vẫn hoạt động bình thường. Bài gần nhất trên fanpage vào ngày 3/11 đăng ảnh cũ của ca sĩ.
+
+Tháng 4/2023, Chi Dân cũng vướng tin đồn liên quan ma túy. Mạng xã hội khi ấy lan truyền hình ảnh một nam ca sĩ bị tạm giữ vì sử dụng ma túy, phải trình diện cơ quan chức năng. Dựa vào những hình xăm trên tay, khán giả đồn đoán Chi Dân liên quan vụ việc.
+
+Trong livestream diễn ra ít ngày sau, Chi Dân không phản hồi tin đồn nhưng xin lỗi khán giả và hứa thay đổi. Ca sĩ nói sau thời gian gặp biến cố gia đình, anh vấp phải nhiều lỗi lầm, không sống đúng với nghề. Anh mong khán giả bỏ qua sự việc.
+
+'Tôi xin lỗi những khán giả đã yêu thương và những người đã buồn, thất vọng vì tôi thời gian qua. Tôi hứa thay đổi, trở thành con người khác tốt đẹp hơn. Tôi hứa sống nghiêm túc với nghề. Hy vọng mọi người bỏ qua và thông cảm, cho Chi Dân quay lại lần này', anh từng nói.
+
+Tháng 4/2023, Chi Dân cũng vướng tin đồn liên quan ma túy. Mạng xã hội khi ấy lan truyền hình ảnh một nam ca sĩ bị tạm giữ vì sử dụng ma túy, phải trình diện cơ quan chức năng. Dựa vào những hình xăm trên tay, khán giả đồn đoán Chi Dân liên quan vụ việc.
+
+Trong livestream diễn ra ít ngày sau, Chi Dân không phản hồi tin đồn nhưng xin lỗi khán giả và hứa thay đổi. Ca sĩ nói sau thời gian gặp biến cố gia đình, anh vấp phải nhiều lỗi lầm, không sống đúng với nghề. Anh mong khán giả bỏ qua sự việc.
+
+'Tôi xin lỗi những khán giả đã yêu thương và những người đã buồn, thất vọng vì tôi thời gian qua. Tôi hứa thay đổi, trở thành con người khác tốt đẹp hơn. Tôi hứa sống nghiêm túc với nghề. Hy vọng mọi người bỏ qua và thông cảm, cho Chi Dân quay lại lần này', anh từng nói.
+
+Thời gian qua, Chi Dân chăm chỉ cập nhật hoạt động mạng xã hội. Ca sĩ dự lễ cưới Anh Đức đầu tháng 9, xuất hiện với vẻ ngoài tươi tắn. Gần đây, anh thông báo sắp ra mắt dự án Since 1989 nhưng đến nay vẫn chưa phát hành.
+
+Thời gian qua, Chi Dân chăm chỉ cập nhật hoạt động mạng xã hội. Ca sĩ dự lễ cưới Anh Đức đầu tháng 9, xuất hiện với vẻ ngoài tươi tắn. Gần đây, anh thông báo sắp ra mắt dự án Since 1989 nhưng đến nay vẫn chưa phát hành.
+
+Hơn 10 năm theo đuổi nghệ thuật, Chi Dân có ít sản phẩm âm nhạc nổi bật. Tần suất góp mặt trong các gameshow, chương trình âm nhạc của anh thời gian qua giảm sút.
+
+Hơn 10 năm theo đuổi nghệ thuật, Chi Dân có ít sản phẩm âm nhạc nổi bật. Tần suất góp mặt trong các gameshow, chương trình âm nhạc của anh thời gian qua giảm sút.
+
+Cuộc sống Chi Dân những năm qua gặp nhiều thăng trầm. Năm 2021, mẹ nam ca sĩ đột ngột qua đời khiến anh suy sụp tinh thần thời gian dài. Nam ca sĩ từng cho biết việc không còn mẹ bên cạnh khiến anh đau đớn tột cùng, từng nghĩ đến cái chết. Anh thừa nhận biến cố mất người thân khiến anh lao đao, không còn năng lượng sống. Ngoài ra, chuyện tình yêu 'không như mong đợi' cũng khiến anh gặp áp lực.
+
+Tháng 9/2023, anh quay MV Đừng khóc tại Singapore. Thời điểm đó, anh gặp vấn đề sức khỏe, phải nhập viện cả tuần ở đảo quốc sư tử.
+
+Cuộc sống Chi Dân những năm qua gặp nhiều thăng trầm. Năm 2021, mẹ nam ca sĩ đột ngột qua đời khiến anh suy sụp tinh thần thời gian dài. Nam ca sĩ từng cho biết việc không còn mẹ bên cạnh khiến anh đau đớn tột cùng, từng nghĩ đến cái chết. Anh thừa nhận biến cố mất người thân khiến anh lao đao, không còn năng lượng sống. Ngoài ra, chuyện tình yêu 'không như mong đợi' cũng khiến anh gặp áp lực.
+
+Tháng 9/2023, anh quay MV Đừng khóc tại Singapore. Thời điểm đó, anh gặp vấn đề sức khỏe, phải nhập viện cả tuần ở đảo quốc sư tử.
+
+Chi Dân từng vướng tin hẹn hò nhiều mỹ nhân showbiz, trong đó có 'ngọc nữ mới' của màn ảnh Việt. Tháng 6/2022, ca sĩ xác nhận chưa có bạn gái khiến nhiều khán giả cho rằng cặp sao đã chia tay.
+
+Nói về việc bản thân bị gắn với tin đồn tình cảm nhiều hơn các sản phẩm âm nhạc, Chi Dân cho hay: 'Tin đồn tình cảm không xấu. Là ca sĩ, tôi cũng có tình cảm như người này, người kia. Khi bị gán ghép cũng không sao. Nếu là tin đồn, tôi đính chính với người thân là được'.
+
+Chi Dân từng vướng tin hẹn hò nhiều mỹ nhân showbiz, trong đó có 'ngọc nữ mới' của màn ảnh Việt. Tháng 6/2022, ca sĩ xác nhận chưa có bạn gái khiến nhiều khán giả cho rằng cặp sao đã chia tay.
+
+Nói về việc bản thân bị gắn với tin đồn tình cảm nhiều hơn các sản phẩm âm nhạc, Chi Dân cho hay: 'Tin đồn tình cảm không xấu. Là ca sĩ, tôi cũng có tình cảm như người này, người kia. Khi bị gán ghép cũng không sao. Nếu là tin đồn, tôi đính chính với người thân là được'.
+
+Chi Dân sinh năm 1989, được giới trẻ biết đến qua các ca khúc như Mất trí nhớ, Người tôi yêu, Điều anh biết, Làm vợ anh nhé ... Những năm sau, Chi Dân trung thành với những ca khúc pop, ballad như Chỉ cần anh giả vờ, Tan vỡ, Em đang bận yêu ai, Người yêu giản đơn, Tan vỡ, Nỗi nhớ không bao giờ quên ...
+
+Chi Dân sinh năm 1989, được giới trẻ biết đến qua các ca khúc như Mất trí nhớ, Người tôi yêu, Điều anh biết, Làm vợ anh nhé ... Những năm sau, Chi Dân trung thành với những ca khúc pop, ballad như Chỉ cần anh giả vờ, Tan vỡ, Em đang bận yêu ai, Người yêu giản đơn, Tan vỡ, Nỗi nhớ không bao giờ quên ...
+
+Thiên Anh

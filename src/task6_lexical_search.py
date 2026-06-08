@@ -15,28 +15,60 @@ BM25 hoạt động thế nào:
     - k1=1.5 (term saturation), b=0.75 (length normalization)
 """
 
+import json
 from pathlib import Path
 
-# TODO: Load corpus từ data/standardized/ hoặc từ vector store
-CORPUS: list[dict] = []  # List of {'content': str, 'metadata': dict}
+import numpy as np
+from rank_bm25 import BM25Okapi
+
+VECTOR_STORE_DIR = Path(__file__).parent.parent / "data" / "vector_store"
+
+_bm25_index = None
+_store = None
 
 
-def build_bm25_index(corpus: list[dict]):
+def _load_store() -> dict:
+    """Load the local vector store built by task4."""
+    global _store
+    if _store is not None:
+        return _store
+
+    store_path = VECTOR_STORE_DIR / "store.json"
+    if not store_path.exists():
+        raise FileNotFoundError(
+            f"Vector store not found at {store_path}. Run task4_chunking_indexing.py first."
+        )
+
+    with store_path.open("r", encoding="utf-8") as f:
+        _store = json.load(f)
+    return _store
+
+
+def _tokenize_vietnamese(text: str) -> list[str]:
     """
-    Xây dựng BM25 index từ corpus.
-
-    Args:
-        corpus: List of {'content': str, 'metadata': dict}
+    Đơn giản split(), hoặc dùng underthesea/PyVi cho việc tokenize tiếng Việt tiên tiến.
+    Ở đây dùng regex để tách từ.
     """
-    # TODO: Implement BM25 index
-    #
-    # from rank_bm25 import BM25Okapi
-    #
-    # # Tokenize - cho tiếng Việt nên dùng underthesea hoặc đơn giản split()
-    # tokenized_corpus = [doc["content"].lower().split() for doc in corpus]
-    # bm25 = BM25Okapi(tokenized_corpus)
-    # return bm25
-    raise NotImplementedError("Implement build_bm25_index")
+    import re
+
+    text = text.lower()
+    tokens = re.findall(r"\b[a-z0-9à-ỿ]+\b", text)
+    return tokens
+
+
+def _build_bm25_index():
+    """Xây dựng BM25 index từ stored documents."""
+    global _bm25_index
+    if _bm25_index is not None:
+        return _bm25_index
+
+    store = _load_store()
+    documents = store.get("documents", [])
+
+    tokenized_corpus = [_tokenize_vietnamese(doc) for doc in documents]
+    _bm25_index = BM25Okapi(tokenized_corpus)
+    print(f"✓ BM25 index built with {len(tokenized_corpus)} documents")
+    return _bm25_index
 
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
@@ -55,29 +87,34 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
         }
         Sorted by score descending.
     """
-    # TODO: Implement lexical search
-    #
-    # tokenized_query = query.lower().split()
-    # scores = bm25.get_scores(tokenized_query)
-    #
-    # # Get top_k indices
-    # import numpy as np
-    # top_indices = np.argsort(scores)[::-1][:top_k]
-    #
-    # results = []
-    # for idx in top_indices:
-    #     if scores[idx] > 0:
-    #         results.append({
-    #             "content": CORPUS[idx]["content"],
-    #             "score": float(scores[idx]),
-    #             "metadata": CORPUS[idx]["metadata"]
-    #         })
-    # return results
-    raise NotImplementedError("Implement lexical_search")
+    bm25 = _build_bm25_index()
+    store = _load_store()
+
+    tokenized_query = _tokenize_vietnamese(query)
+    scores = bm25.get_scores(tokenized_query)
+
+    top_indices = np.argsort(scores)[::-1][:top_k]
+
+    results = []
+    for idx in top_indices:
+        if idx < len(store["documents"]):
+            results.append(
+                {
+                    "content": store["documents"][idx],
+                    "score": float(scores[idx]),
+                    "metadata": store["metadatas"][idx],
+                }
+            )
+
+    return results
 
 
 if __name__ == "__main__":
-    # Test
-    results = lexical_search("Điều 248 tàng trữ trái phép chất ma tuý", top_k=5)
-    for r in results:
-        print(f"[{r['score']:.3f}] {r['content'][:100]}...")
+    query = "ma túy hàng không tiếp viên"
+    results = lexical_search(query, top_k=5)
+    print(f"BM25 Lexical Search: '{query}'")
+    print("=" * 60)
+    for i, r in enumerate(results, 1):
+        print(f"\n[{i}] Score: {r['score']:.3f}")
+        print(f"    Source: {r['metadata'].get('source', 'Unknown')}")
+        print(f"    Content: {r['content'][:150].replace(chr(10), ' ')}...")
